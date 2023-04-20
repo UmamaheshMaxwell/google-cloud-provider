@@ -1,6 +1,11 @@
 steps:
+  # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
-    args: ["build", "-t", "gcr.io/$PROJECT_ID/quick-start", "."]
+    args: ["build", "-t", "gcr.io/${PROJECT_ID}/quick-start", "."]
+  # Docker Push
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 
+           'us-central1-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/myimage']
 images:
-  - "gcr.io/$PROJECT_ID/quick-start"
+  - "gcr.io/${PROJECT_ID}/quick-start"
 
